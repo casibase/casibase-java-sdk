@@ -27,7 +27,7 @@ public class TestDefaultConfig {
 
     private static final String TEST_CASIBASE_ENDPOINT = "https://demo-admin.casibase.com";
     private static final String TEST_CLIENT_ID = "af6b5aa958822fb9dc33";
-    private static final String TEST_CLIENT_SECRET = "124140638b4f9de7e78e79ba22d451c17bfa9688";
+    private static final String TEST_CLIENT_SECRET = "8bc3010c1c951c8d876b1f311a901ff8deeb93bc";
     private static final String TEST_CASIBASE_ORGANIZATION = "casbin";
     private static final String TEST_CASIBASE_APPLICATION = "app-casibase";
 
