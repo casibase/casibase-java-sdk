@@ -21,7 +21,9 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import okhttp3.Credentials;
 import org.casbin.casibase.config.Config;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.casbin.casibase.exception.Exception;
+import org.casbin.casibase.util.AuthTypeEnum;
 import org.casbin.casibase.util.Map;
 import org.casbin.casibase.util.http.CasibaseResponse;
 import org.casbin.casibase.util.http.HttpClient;
@@ -42,6 +44,21 @@ public class Service {
     protected Service(Config config) {
         this.config = config;
         this.credential = Credentials.basic(config.clientId, config.clientSecret);
+    }
+
+    protected Service(Config config, AuthTypeEnum authType) {
+        this.config = config;
+        switch (authType){
+            case BASIC:
+                this.credential = Credentials.basic(config.clientId, config.clientSecret);
+                break;
+            case BEARER:
+                String token = config.clientId + ":" + config.clientSecret;
+                this.credential = "Bearer " + DigestUtils.md5Hex(token);
+                break;
+            default:
+                throw new Exception("Invalid auth type");
+        }
     }
 
     protected <T1, T2> CasibaseResponse<T1, T2> doGet(@NotNull String action, @Nullable java.util.Map<String, String> queryParams, TypeReference<CasibaseResponse<T1, T2>> typeReference) throws IOException {

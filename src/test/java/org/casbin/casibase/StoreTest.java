@@ -19,6 +19,7 @@ package org.casbin.casibase;
 import org.casbin.casibase.entity.*;
 import org.casbin.casibase.service.StoreService;
 import org.casbin.casibase.support.TestDefaultConfig;
+import org.casbin.casibase.util.AuthTypeEnum;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -32,7 +33,7 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class StoreTest {
-    private final StoreService storeService = new StoreService(TestDefaultConfig.InitConfig());
+    private final StoreService storeService = new StoreService(TestDefaultConfig.InitConfig(), AuthTypeEnum.BEARER);
 
     @Test
     public void testStore() {
