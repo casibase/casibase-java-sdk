@@ -20,6 +20,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import org.casbin.casibase.config.Config;
 import org.casbin.casibase.entity.Store;
 import org.casbin.casibase.entity.Store;
+import org.casbin.casibase.util.AuthTypeEnum;
 import org.casbin.casibase.util.Map;
 import org.casbin.casibase.util.StoreOperations;
 import org.casbin.casibase.util.http.CasibaseResponse;
@@ -33,6 +34,10 @@ public class StoreService extends Service{
 
     public StoreService(Config config){
         super(config);
+    }
+
+    public StoreService(Config config, AuthTypeEnum authType) {
+        super(config, authType);
     }
 
     public Store getStore(String name) throws IOException {

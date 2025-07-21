@@ -19,6 +19,7 @@ package org.casbin.casibase;
 import org.casbin.casibase.entity.Record;
 import org.casbin.casibase.service.RecordService;
 import org.casbin.casibase.support.TestDefaultConfig;
+import org.casbin.casibase.util.AuthTypeEnum;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -28,7 +29,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class RecordTest {
-    private final RecordService recordService = new RecordService(TestDefaultConfig.InitConfig());
+    private final RecordService recordService = new RecordService(TestDefaultConfig.InitConfig(), AuthTypeEnum.BEARER);
 
     @Test
     public void testRecord() {

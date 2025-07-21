@@ -19,6 +19,7 @@ package org.casbin.casibase;
 import org.casbin.casibase.entity.Task;
 import org.casbin.casibase.service.TaskService;
 import org.casbin.casibase.support.TestDefaultConfig;
+import org.casbin.casibase.util.AuthTypeEnum;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -30,7 +31,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TaskTest {
-    private final TaskService taskService = new TaskService(TestDefaultConfig.InitConfig());
+    private final TaskService taskService = new TaskService(TestDefaultConfig.InitConfig(), AuthTypeEnum.BEARER);
 
     @Test
     public void testTask() {

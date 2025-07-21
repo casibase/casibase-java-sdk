@@ -19,6 +19,7 @@ package org.casbin.casibase.service;
 import com.fasterxml.jackson.core.type.TypeReference;
 import org.casbin.casibase.config.Config;
 import org.casbin.casibase.entity.Task;
+import org.casbin.casibase.util.AuthTypeEnum;
 import org.casbin.casibase.util.Map;
 import org.casbin.casibase.util.TaskOperations;
 import org.casbin.casibase.util.http.CasibaseResponse;
@@ -32,6 +33,10 @@ public class TaskService extends Service {
 
     public TaskService(Config config) {
         super(config);
+    }
+
+    public TaskService(Config config, AuthTypeEnum authType) {
+        super(config, authType);
     }
 
     public Task getTask(String name) throws IOException {
